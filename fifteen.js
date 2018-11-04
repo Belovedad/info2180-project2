@@ -3,8 +3,8 @@
 //transition used for the extra feature.
 
 
-var t = 0,
-	l = 0;
+var T = 0,
+	L = 0;
 
 
 window.onload = setTiles;
@@ -17,13 +17,13 @@ function setTiles() {
 
 	for (var i = 0; i < x.length; i++) {
 		x[i].classList.add("puzzlepiece");
-		x[i].style.left = l + "px";
-		x[i].style.top = t + "px";
+		x[i].style.left = L + "px";
+		x[i].style.top = T + "px";
 		x[i].style.backgroundPosition = "-" + x[i].style.left + " " + "-" + x[i].style.top;
-		l += 100;
-		if (l > 300) {
-			t += 100;
-			l = 0;
+		L += 100;
+		if (L > 300) {
+			T += 100;
+			L = 0;
 		}
 
 		x[i].onclick = function () {
@@ -60,7 +60,7 @@ function movable(posl, post) {
 	console.log(x);
 	console.log(y);
 
-	if (x + 100 === l && y === t || x - 100 === l && y === t || y + 100 === t && x === l || y - 100 === t && x === l) {
+	if (x + 100 === L && y === T || x - 100 === L && y === T || y + 100 === T && x === L || y - 100 === T && x === L) {
 		return true;
 	} else {
 		return false;
@@ -71,10 +71,10 @@ function movable(posl, post) {
 function switcher(x, y) {
 	var ol = x;
 	var ot = y;
-	x = l + "px";
-	y = t + "px";
-	l = parseInt(ol, 10);
-	t = parseInt(ot, 10);
+	x = L + "px";
+	y = T + "px";
+	L = parseInt(ol, 10);
+	T = parseInt(ot, 10);
 	return [x, y];
 }
 
